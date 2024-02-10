@@ -16,7 +16,7 @@ module "actions_ebs_chart" {
 }
 
 module "actions_actions_arc_chart" {
-  source                       = "../actions-arc-chart"
+  source                       = "../actions-arc-k8s-chart"
   arc_controller_namespace     = var.arc_controller_namespace
   arc_controller_chart_version = var.arc_controller_chart_version
 

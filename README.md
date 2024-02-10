@@ -15,17 +15,6 @@ This project currently supports running the GitHub Actions Runner on the followi
 
 > ⚠️ **Before running the Terraform commands, make sure to update the `terraform.tfvars` file with the right `githubConfigUrl` and `github_token`.**
 
-## Requirements
-
-The following tools are required for this project:
-
-* `docker` (up and running)
-* `terraform` (1.0+)
-* `helm` (3.0+)
-* `kind`
-* `minikube`
-* `make`
-
 ## Deploying to AWS EKS
 
 ### Requirements for AWS EKS

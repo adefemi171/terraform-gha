@@ -11,8 +11,8 @@ arc_controller_chart_version = "0.7.0"
 arc_runner_namespace     = "arc-runners"
 arc_runner_chart_version = "0.7.0"
 
-githubConfigUrl   = "https://github.com/arc-test/arc-test"     # This is a dummy repo
-github_token      = "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" # This is a dummy token
+githubConfigUrl   = "https://github.com/" # This is a dummy repo
+github_token      = "ghp_3"               # This is a dummy token
 maxRunners        = "3"
 minRunners        = "1"
 containerModeType = "dind"

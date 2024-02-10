@@ -11,9 +11,9 @@ It supports two main use cases:
 
 The project currently supports running GitHub Actions Runner on the following platforms:
 
-1. **AWS EKS** Deploying GitHub Actions Runner on AWS EKS.
-1. **KinD** Deploying GitHub Actions Runner on KinD.
-1. **Minikube** Deploying GitHub Actions Runner on Minikube.
+1. **AWS EKS:** Deploying GitHub Actions Runner Controller on AWS EKS.
+1. **KinD:** Deploying GitHub Actions Runner Controller on KinD.
+1. **Minikube:** Deploying GitHub Actions Runner Controller on Minikube.
 
 > ⚠️ **Before running the Terraform commands, make sure to update the `terraform.tfvars` file with the right `githubConfigUrl` and `github_token`.**
 

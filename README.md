@@ -21,7 +21,7 @@ The project currently supports running GitHub Actions Runner on the following pl
 
 ### Requirements for AWS EKS
 
-The following tools are required for deploying the GitHub Actions Runner on AWS EKS:
+The following tools are required for deploying GitHub Actions Runner Controller on AWS EKS:
 
 * `docker` (up and running)
 * `awscli`
@@ -60,7 +60,7 @@ To update the cluster, there are variables that can be changed, and it is locate
 
 ### Requirements for KinD
 
-The following tools are required for deploying the GitHub Actions Runner on KinD:
+The following tools are required for deploying GitHub Actions Runner Controller on KinD:
 
 * `docker` (up and running)
 * `terraform` (1.0+)
@@ -96,7 +96,7 @@ To update the cluster, there are variables that can be changed, and it is locate
 
 ### Requirements for Minikube
 
-The following tools are required for deploying the GitHub Actions Runner on Minikube:
+The following tools are required for deploying GitHub Actions Runner Controller on Minikube:
 
 * `docker` (up and running)
 * `terraform` (1.0+)

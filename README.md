@@ -6,8 +6,8 @@ This Terraform project allows user create a Kubernetes Cluster with [GitHub Acti
 
 It supports two main use cases:
 
-1. **DinD (Docker in Docker)** Deploying GitHub Actions Runner using Docker in Docker as the Container Mode.
-1. **Kubernetes** Deploying GitHub Actions Runner using Kubernetes as the Container Mode.
+1. **DinD (Docker in Docker):** Deploying GitHub Actions Runner using Docker in Docker as the Container Mode.
+1. **Kubernetes:** Deploying GitHub Actions Runner using Kubernetes as the Container Mode.
 
 The project currently supports running GitHub Actions Runner on the following platforms:
 
@@ -25,13 +25,12 @@ The following tools are required for deploying the GitHub Actions Runner on AWS 
 
 * `docker` (up and running)
 * `awscli`
+* `aws secret and access key`
 * `kubectl`
 * `eksctl`
 * `terraform` (1.0+)
 * `helm` (3.0+)
 * `make`
-* `aws secret and access key`
-
 
 #### Using Container Mode as DinD in AWS EKS
 

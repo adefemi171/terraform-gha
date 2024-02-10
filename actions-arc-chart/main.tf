@@ -43,7 +43,7 @@ resource "helm_release" "actions_arc_runner" {
   }
 
   set {
-    name  = "containerMode.kubernetesModeWorkVolumeClaim.accessModes[]"
+    name  = "containerMode.kubernetesModeWorkVolumeClaim.accessModes[0]"
     value = var.VolumeClaimAccessModes
   }
 

@@ -2,10 +2,10 @@
 
 ## Getting Started
 
-This Terraform project allows user create a Kubernetes Cluster either running on any cloud provider (currently support AWS) or locally using [Kubernetes-in-Docker Stack](https://github.com/kubernetes-sigs/kind) (KIND) or [Minikube](https://github.com/kubernetes/minikube). It supports two main use cases:
+This Terraform project allows user create a Kubernetes Cluster with [GitHub Action Runner Controller](https://github.com/actions/actions-runner-controller) installed running on any cloud provider (currently support AWS) or locally using [Kubernetes-in-Docker](https://github.com/kubernetes-sigs/kind) (KIND) or [Minikube](https://github.com/kubernetes/minikube). It supports two main use cases:
 
-1. **DinD** Deploying GitHub Actions Runner using Docker in Docker as the Container Mode.
-1. **AWS EKS** Deploying GitHub Actions Runner using Kubernetes as the Container Mode.
+1. **DinD (Docker in Docker)** Deploying GitHub Actions Runner using Docker in Docker as the Container Mode.
+1. **Kubernetes** Deploying GitHub Actions Runner using Kubernetes as the Container Mode.
 
 This project currently supports running the GitHub Actions Runner on the following platforms:
 

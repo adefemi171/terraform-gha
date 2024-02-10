@@ -35,4 +35,3 @@ variable "VolumeClaimAccessModes" {}
 variable "VolumeClaimStorageClassName" {}
 
 variable "VolumeClaimResourcesRequestsStorage" {}
-

@@ -1,5 +1,5 @@
 module "action_cluster" {
-  source = "./actions-cluster"
+  source = "../actions-cluster"
 
   cluster_name                        = var.cluster_name
   cluster_version                     = var.cluster_version
@@ -28,12 +28,12 @@ module "action_cluster" {
 }
 
 module "network" {
-  source = "./actions-network"
+  source = "../actions-network"
 
 }
 
 module "actions_role" {
-  source = "./actions-role"
+  source = "../actions-role"
 
   actions_cluster_role_name     = var.actions_cluster_role_name
   ebs_role_name                 = var.ebs_role_name
@@ -43,7 +43,7 @@ module "actions_role" {
 }
 
 module "actions_ebs_chart" {
-  source             = "../actions-ebs-chart"
+  source             = "../../actions-ebs-chart"
   ebs_chart_version  = var.ebs_chart_version
   open_ebs_namespace = var.open_ebs_namespace
 
@@ -51,7 +51,7 @@ module "actions_ebs_chart" {
 }
 
 module "actions_actions_arc_chart" {
-  source                       = "../actions-arc-k8s-chart"
+  source                       = "../../actions-arc-k8s-chart"
   arc_controller_namespace     = var.arc_controller_namespace
   arc_controller_chart_version = var.arc_controller_chart_version
 

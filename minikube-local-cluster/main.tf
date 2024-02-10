@@ -1,14 +1,14 @@
 module "action_cluster" {
   source = "./actions-cluster"
 
-  minikube_driver = var.minikube_driver
+  minikube_driver    = var.minikube_driver
   cluster_name       = var.cluster_name
   kubernetes_version = var.kubernetes_version
-  cluster_addons = var.cluster_addons
-  cluster_cpus = var.cluster_cpus
-  cluster_disk_size = var.cluster_disk_size
-  cluster_memory = var.cluster_memory
-  cluster_nodes = var.cluster_nodes
+  cluster_addons     = var.cluster_addons
+  cluster_cpus       = var.cluster_cpus
+  cluster_disk_size  = var.cluster_disk_size
+  cluster_memory     = var.cluster_memory
+  cluster_nodes      = var.cluster_nodes
 }
 
 module "actions_ebs_chart" {

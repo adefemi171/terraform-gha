@@ -5,7 +5,7 @@ variable "cluster_name" {}
 variable "kubernetes_version" {}
 
 variable "cluster_addons" {
-    default = []
+  default = []
 }
 
 variable "cluster_cpus" {}

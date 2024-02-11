@@ -4,7 +4,7 @@ output "action_cluster_endpoint" {
 
 output "action_cluster_certificate_authority_data" {
   value = module.eks.cluster_certificate_authority_data
-
+  sensitive = true
 }
 
 output "actions_cluster_name" {

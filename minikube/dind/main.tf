@@ -11,14 +11,8 @@ module "action_cluster" {
   cluster_nodes      = var.cluster_nodes
 }
 
-module "actions_ebs_chart" {
-  source             = "../../actions-ebs-chart"
-  ebs_chart_version  = var.ebs_chart_version
-  open_ebs_namespace = var.open_ebs_namespace
-}
-
 module "actions_actions_arc_chart" {
-  source                       = "../../actions-arc-k8s-chart"
+  source                       = "../../actions-arc-dind-chart"
   arc_controller_namespace     = var.arc_controller_namespace
   arc_controller_chart_version = var.arc_controller_chart_version
 
@@ -30,12 +24,8 @@ module "actions_actions_arc_chart" {
   maxRunners                          = var.maxRunners
   minRunners                          = var.minRunners
   containerModeType                   = var.containerModeType
-  VolumeClaimAccessModes              = var.VolumeClaimAccessModes
-  VolumeClaimStorageClassName         = var.VolumeClaimStorageClassName
-  VolumeClaimResourcesRequestsStorage = var.VolumeClaimResourcesRequestsStorage
 
   depends_on = [
-    module.action_cluster,
-    module.actions_ebs_chart
+    module.action_cluster
   ]
 }

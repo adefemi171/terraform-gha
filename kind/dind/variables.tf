@@ -15,12 +15,4 @@ variable "arc_runner_namespace" {}
 
 variable "arc_runner_chart_version" {}
 
-variable "githubConfigUrl" {}
-
-variable "github_token" {}
-
-variable "maxRunners" {}
-
-variable "minRunners" {}
-
-variable "containerModeType" {}
+variable "arc_runner_config" {}

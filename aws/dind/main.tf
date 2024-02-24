@@ -49,12 +49,7 @@ module "actions_actions_arc_chart" {
 
   arc_runner_namespace     = var.arc_runner_namespace
   arc_runner_chart_version = var.arc_runner_chart_version
-
-  githubConfigUrl   = var.githubConfigUrl
-  github_token      = var.github_token
-  maxRunners        = var.maxRunners
-  minRunners        = var.minRunners
-  containerModeType = var.containerModeType
+  arc_runner_config        = var.arc_runner_config
 
   depends_on = [
     module.action_cluster

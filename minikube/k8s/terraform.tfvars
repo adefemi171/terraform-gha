@@ -24,12 +24,31 @@ arc_controller_chart_version = "0.7.0"
 
 arc_runner_namespace     = "arc-runners"
 arc_runner_chart_version = "0.7.0"
+arc_runner_config = [{
+  name  = "githubConfigUrl"
+  value = "https://github.com/" # This is a dummy repo
+  }, {
+  name  = "githubConfigSecret.github_token"
+  value = "ghp_3" # This is a dummy token
+  }, {
+  name  = "maxRunners"
+  value = "3"
+  }, {
+  name  = "minRunners"
+  value = "1"
+  }, {
+  name  = "containerMode.type"
+  value = "kubernetes"
+  }, {
+  name  = "containerMode.kubernetesModeWorkVolumeClaim.accessModes[0]"
+  value = "ReadWriteOnce"
+  }, {
+  name  = "containerMode.kubernetesModeWorkVolumeClaim.storageClassName"
+  value = "openebs-hostpath"
+  }, {
+  name  = "containerMode.kubernetesModeWorkVolumeClaim.resources.requests.storage"
+  value = "1Gi"
+}]
 
-githubConfigUrl                     = "https://github.com/" # This is a dummy repo
-github_token                        = "ghp_3"               # This is a dummy token
-maxRunners                          = "3"
-minRunners                          = "1"
-containerModeType                   = "kubernetes"
-VolumeClaimAccessModes              = "ReadWriteOnce"
-VolumeClaimStorageClassName         = "openebs-hostpath"
-VolumeClaimResourcesRequestsStorage = "1Gi"
+# githubConfigUrl                     = "https://github.com/" # This is a dummy repo
+# github_token                        = "ghp_3"               # This is a dummy token

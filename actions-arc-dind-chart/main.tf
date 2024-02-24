@@ -17,29 +17,12 @@ resource "helm_release" "actions_arc_runner" {
   chart      = "gha-runner-scale-set"
   version    = var.arc_runner_chart_version
 
-  set {
-    name  = "githubConfigUrl"
-    value = var.githubConfigUrl
-  }
-
-  set {
-    name  = "githubConfigSecret.github_token"
-    value = var.github_token
-  }
-
-  set {
-    name  = "maxRunners"
-    value = var.maxRunners
-  }
-
-  set {
-    name  = "minRunners"
-    value = var.minRunners
-  }
-
-  set {
-    name  = "containerMode.type"
-    value = var.containerModeType
+  dynamic "set" {
+    for_each = var.arc_runner_config
+    content {
+      name  = set.value["name"]
+      value = set.value["value"]
+    }
   }
 
   depends_on = [helm_release.actions_arc_controller]

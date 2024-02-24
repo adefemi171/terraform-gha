@@ -21,8 +21,19 @@ arc_controller_chart_version = "0.7.0"
 arc_runner_namespace     = "arc-runners"
 arc_runner_chart_version = "0.7.0"
 
-githubConfigUrl                     = "https://github.com/" # This is a dummy repo
-github_token                        = "ghp_3"               # This is a dummy token
-maxRunners                          = "3"
-minRunners                          = "1"
-containerModeType                   = "dind"
+arc_runner_config = [{
+  name  = "githubConfigUrl"
+  value = "https://github.com/" # This is a dummy repo
+  }, {
+  name  = "githubConfigSecret.github_token"
+  value = "ghp_3" # This is a dummy token
+  }, {
+  name  = "maxRunners"
+  value = "3"
+  }, {
+  name  = "minRunners"
+  value = "1"
+  }, {
+  name  = "containerMode.type"
+  value = "dind"
+}]

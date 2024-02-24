@@ -1,13 +1,10 @@
 terraform {
   required_providers {
     kind = {
-      source  = "tehcyx/kind"
-      version = "0.2.1"
+      source = "tehcyx/kind"
     }
   }
 }
-
-provider "kind" {}
 
 resource "kind_cluster" "actions_local_cluster" {
   name           = var.cluster_name

@@ -49,6 +49,3 @@ arc_runner_config = [{
   name  = "containerMode.kubernetesModeWorkVolumeClaim.resources.requests.storage"
   value = "1Gi"
 }]
-
-# githubConfigUrl                     = "https://github.com/" # This is a dummy repo
-# github_token                        = "ghp_3"               # This is a dummy token

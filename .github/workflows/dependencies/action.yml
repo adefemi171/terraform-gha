@@ -15,10 +15,11 @@ runs:
     - name: Install packages
       shell: bash
       run: |
-        sudo usermod -aG sudo $(whoami)
         sudo apt-get update -y && sudo apt-get install -y \
           awscli \
           curl \
           jq \
-          make 
+          make \
+          sudo
+        sudo usermod -aG sudo $(whoami)
 

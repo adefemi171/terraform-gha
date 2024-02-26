@@ -1,4 +1,4 @@
-name: CI
+name: Terraform Quality
 
 on:
   pull_request:
@@ -12,15 +12,19 @@ on:
 jobs:
   digger-job:
     runs-on: arc-runners
-    # permissions:    
-    #   contents: write      # required to merge PRs
-    #   actions: write       # required for plan persistence
-    #   id-token: write      # required for workload-identity-federation
-    #   pull-requests: write # required to post PR comments
-    #   statuses: write      # required to validate combined PR status
+    permissions:    
+      contents: write      # required to merge PRs
+      actions: write       # required for plan persistence
+      id-token: write      # required for workload-identity-federation
+      pull-requests: write # required to post PR comments
+      statuses: write      # required to validate combined PR status
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install dependencies
+        uses: ./.github/workflows/dependencies
+        with:
+          runner: ${{ runner.os }}
       - name: digger run
         uses: diggerhq/digger@v0.1.30
         with:
@@ -33,5 +37,4 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           

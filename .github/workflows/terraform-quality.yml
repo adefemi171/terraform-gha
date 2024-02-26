@@ -12,12 +12,12 @@ on:
 jobs:
   digger-job:
     runs-on: arc-runners
-    permissions:    
-      contents: write      # required to merge PRs
-      actions: write       # required for plan persistence
-      id-token: write      # required for workload-identity-federation
-      pull-requests: write # required to post PR comments
-      statuses: write      # required to validate combined PR status
+    # permissions:    
+    #   contents: write      # required to merge PRs
+    #   actions: write       # required for plan persistence
+    #   id-token: write      # required for workload-identity-federation
+    #   pull-requests: write # required to post PR comments
+    #   statuses: write      # required to validate combined PR status
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -15,7 +15,7 @@ runs:
     - name: Install packages
       shell: bash
       run: |
-        sudo chmod 666 /var/run/docker.sock
+        sudo usermod -aG sudo $(whoami)
         sudo apt-get update -y && sudo apt-get install -y \
           awscli \
           curl \

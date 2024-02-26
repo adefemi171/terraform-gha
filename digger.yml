@@ -1,0 +1,27 @@
+collect_usage_data: true
+auto_merge: false
+projects:
+- name: aws-dind
+  dir: aws/dind
+  workflow: terraform_init_and_plan
+- name: aws-k8s
+  dir: aws/k8s
+  workflow: terraform_init_and_plan
+- name: kind-dind
+  dir: kind/dind
+  workflow: terraform_init_and_plan
+- name: kind-k8s
+  dir: kind/k8s
+  workflow: terraform_init_and_plan
+- name: minikube-dind
+  dir: minikube/dind
+  workflow: terraform_init_and_plan
+- name: minikube-k8s
+  dir: minikube/k8s
+  workflow: terraform_init_and_plan
+workflow:
+  terraform_init_and_plan:
+    plan:
+      steps:
+      - run: terraform init -reconfigure
+      - plan

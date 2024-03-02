@@ -8,7 +8,7 @@ on:
     #   - ""
 
 jobs:
-  digger-job:
+  terraform:
     runs-on: arc-runners
     permissions:    
       contents: write      # required to merge PRs
@@ -24,9 +24,9 @@ jobs:
         with:
           runner: ${{ runner.os }}
       - name: Set Up Terraform
-        uses: hashicorp/setup-terraform@v1
-      - name: Format Terraform Config
-        run: terraform fmt -check
+        uses: hashicorp/setup-terraform@v3
+      # - name: Format Terraform Config
+      #   run: terraform fmt -check
       # - name: Validate Terraform Config
       #   uses: terraform validate 
       - name: Plan Terraform Config

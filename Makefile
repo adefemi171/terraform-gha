@@ -102,3 +102,27 @@ cleanup-minikube-k8s:
 	cd minikube/k8s
 	terraform destroy -auto-approve -var-file=terraform.tfvars
 	rm -f *-config || echo "File not found, skipping"
+
+.PHONY: plan-kind-dind
+plan-kind-dind:
+	cd kind/dind
+	terraform init -upgrade
+	terraform plan -var-file=terraform.tfvars
+
+.PHONY: plan-kind-k8s
+plan-kind-k8s:
+	cd kind/k8s
+	terraform init -upgrade
+	terraform plan -var-file=terraform.tfvars
+
+.PHONY: plan-minikube-dind
+plan-minikube-dind:
+	cd minikube/dind
+	terraform init -upgrade
+	terraform plan -var-file=terraform.tfvars
+
+.PHONY: plan-minikube-k8s
+plan-minikube-k8s:
+	cd minikube/k8s
+	terraform init -upgrade
+	terraform plan -var-file=terraform.tfvars

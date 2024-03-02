@@ -1,15 +1,16 @@
 name: Terraform Quality
 
 on:
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - "actions-arc-dind-chart"
-      - "actions-arc-k8s-chart"
-      - "actions-ebs-chart"
-      - "aws"
-      - "kind"
-      - "minikube"
+    pull_request:
+        branches:
+            - main
+        paths:
+            - 'actions-arc-dind-chart'
+            - 'actions-arc-k8s-chart'
+            - 'actions-ebs-chart'
+            - 'aws'
+            - 'kind'
+            - 'minikube'
 
 jobs:
   terraform:

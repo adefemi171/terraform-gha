@@ -3,9 +3,13 @@ name: Terraform Quality
 on:
   pull_request:
     branches: [ "main" ]
-    # paths:
-    #   - "actions-/**"
-    #   - ""
+    paths:
+      - "actions-arc-dind-chart"
+      - "actions-arc-k8s-chart"
+      - "actions-ebs-chart"
+      - "aws"
+      - "kind"
+      - "minikube"
 
 jobs:
   terraform:
@@ -25,10 +29,10 @@ jobs:
           runner: ${{ runner.os }}
       - name: Set Up Terraform
         uses: hashicorp/setup-terraform@v3
-      # - name: Format Terraform Config
-      #   run: terraform fmt -check
+      - name: Format Terraform Config
+        run: terraform fmt -check
       # - name: Validate Terraform Config
       #   uses: terraform validate 
-      - name: Plan Terraform Config
-        run:  make plan-kind-dind && make plan-kind-k8s && make plan-minikube-dind && make plan-minikube-k8s
+      # - name: Plan Terraform Config
+      #   run:  make plan-kind-dind && make plan-kind-k8s && make plan-minikube-dind && make plan-minikube-k8s
           

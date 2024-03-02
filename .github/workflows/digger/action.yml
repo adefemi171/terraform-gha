@@ -1,0 +1,31 @@
+name: "Install Digger"
+description: "Install dependencies for the Runner"
+
+inputs:
+    runner:
+        description: "Runner OS"
+        required: true
+        default: "arc-runners"
+    reporting-strategy:
+        description: "Reporting strategy"
+        required: true
+        default: "comments_per_run"
+    disable-locking:
+        description: "Disable locking"
+        required: true
+        default: "true"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Checkout"
+      uses: actions/checkout@v4
+    - name: Install Digger
+      shell: bash
+      run: |
+        curl -sL https://github.com/diggerhq/digger/releases/download/${actionref}/digger-Linux-ARM64 -o digger
+        chmod +x digger
+        sudo mv digger /usr/local/bin/digger
+        cd /home/runner/_work/terraform-gha/terraform-gha
+        digger
+

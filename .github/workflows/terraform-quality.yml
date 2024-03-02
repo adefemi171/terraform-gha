@@ -22,8 +22,10 @@ jobs:
           runner: ${{ runner.os }}
       - name: Set Up Terraform
         uses: hashicorp/setup-terraform@v3
-      - name: Format Terraform Config
-        run: cd /home/runner/_work/terraform-gha/terraform-gha && terraform fmt -check
+      - name: Test Manually hosted runner
+        run: echo "This is a test of a manually hosted runner running on ARM64 architecture with" ${{ runner.os }} "OS"
+      # - name: Format Terraform Config
+      #   run: terraform fmt -check
       # - name: Validate Terraform Config
       #   uses: terraform validate 
       # - name: Plan Terraform Config

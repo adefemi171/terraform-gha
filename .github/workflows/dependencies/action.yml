@@ -1,0 +1,26 @@
+name: "Install dependencies"
+description: "Install dependencies for the Runner"
+
+inputs:
+    runner:
+        description: "Runner OS"
+        required: true
+        default: "arc-runners"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Checkout"
+      uses: actions/checkout@v4
+    - name: Install packages
+      shell: bash
+      run: |
+        sudo apt-get update -y && sudo apt-get install -y \
+          awscli \
+          curl \
+          jq \
+          make \
+          sudo \
+          unzip
+       
+

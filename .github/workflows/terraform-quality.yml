@@ -1,16 +1,19 @@
-name: CI
+name: Terraform Quality
 
 on:
-  pull_request:
-    branches: [ "main" ]
-    types: [ closed, opened, synchronize, reopened ]
-  issue_comment:
-    types: [created]
-    if: contains(github.event.comment.body, 'digger')
-  workflow_dispatch:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - 'actions-arc-dind-chart'
+            - 'actions-arc-k8s-chart'
+            - 'actions-ebs-chart'
+            - 'aws'
+            - 'kind'
+            - 'minikube'
 
 jobs:
-  digger-job:
+  terraform:
     runs-on: arc-runners
     permissions:    
       contents: write      # required to merge PRs
@@ -21,17 +24,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: digger run
-        uses: diggerhq/digger@v0.1.30
+      - name: Install dependencies
+        uses: ./.github/workflows/dependencies
         with:
-          # setup-aws: true
-          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          # aws-region: us-east-1
-          reporting-strategy: 'comments_per_run'
-          disable-locking: true
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          runner: ${{ runner.os }}
+      - name: Set Up Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Format Terraform Config
+        run: terraform fmt -check
+      # - name: Validate Terraform Config
+      #   uses: terraform validate 
+      # - name: Plan Terraform Config
+      #   run:  make plan-kind-dind && make plan-kind-k8s && make plan-minikube-dind && make plan-minikube-k8s
           

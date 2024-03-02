@@ -22,4 +22,6 @@ runs:
           make \
           sudo
         sudo usermod -aG sudo $(whoami)
+        cat /etc/os-release
+        dpkg --print-architecture
 

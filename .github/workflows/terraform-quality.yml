@@ -25,15 +25,15 @@ jobs:
         uses: ./.github/workflows/dependencies
         with:
           runner: ${{ runner.os }}
-      - name: Install Digger
-        uses: ./.github/workflows/digger
-        with:
-          runner: ${{ runner.os }}
-          reporting-strategy: 'comments_per_run'
-          disable-locking: true
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Install Digger
+      #   uses: ./.github/workflows/digger
+      #   with:
+      #     runner: ${{ runner.os }}
+      #     reporting-strategy: 'comments_per_run'
+      #     disable-locking: true
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJson(github) }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: digger run
       #   uses: diggerhq/digger@v0.1.30
       #   with:

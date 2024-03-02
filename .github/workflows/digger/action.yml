@@ -23,10 +23,10 @@ runs:
     - name: Install Digger
       shell: bash
       run: |
-        curl -sL https://github.com/diggerhq/digger/releases/download/v0.4.6/digger-api-darwin-arm64 -o digger
+        curl -sL https://github.com/diggerhq/digger/releases/download/v0.4.4/digger-cli-linux-arm64 -o digger
         chmod +x digger
         sudo mv digger /usr/local/bin/digger
         cd /home/runner/_work/terraform-gha/terraform-gha
         digger
-        
+
 

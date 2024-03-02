@@ -13,25 +13,41 @@ on:
             - 'minikube'
 
 jobs:
-  terraform:
-    runs-on: arc-runners
-    permissions:    
-      contents: write      # required to merge PRs
-      actions: write       # required for plan persistence
-      id-token: write      # required for workload-identity-federation
-      pull-requests: write # required to post PR comments
-      statuses: write      # required to validate combined PR status
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        uses: ./.github/workflows/dependencies
-        with:
-          runner: ${{ runner.os }}
-      - name: Set Up Terraform
-        uses: hashicorp/setup-terraform@v3
-      - name: Format Terraform Config
-        run: terraform fmt -check
+    check-terraform-format:
+        runs-on: arc-runners
+        timeout-minutes: 15
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              uses: ./.github/workflows/dependencies
+              with:
+                runner: ${{ runner.os }}
+            - name: Set up Terraform
+              uses: hashicorp/setup-terraform@v3
+            - name: Terraform fmt
+              run: terraform fmt -check
+
+# jobs:
+#   terraform-check:
+#     runs-on: arc-runners
+#     permissions:    
+#       contents: write      # required to merge PRs
+#       actions: write       # required for plan persistence
+#       id-token: write      # required for workload-identity-federation
+#       pull-requests: write # required to post PR comments
+#       statuses: write      # required to validate combined PR status
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: Install dependencies
+#         uses: ./.github/workflows/dependencies
+#         with:
+#           runner: ${{ runner.os }}
+#       - name: Set Up Terraform
+#         uses: hashicorp/setup-terraform@v3
+#       - name: Format Terraform Config
+#         run: terraform fmt -check
       # - name: Validate Terraform Config
       #   uses: terraform validate 
       # - name: Plan Terraform Config

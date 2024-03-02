@@ -34,6 +34,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DIGGER_TOKEN: ${{ secrets.DIGGER_TOKEN }}
       # - name: digger run
       #   uses: diggerhq/digger@v0.1.30
       #   with:

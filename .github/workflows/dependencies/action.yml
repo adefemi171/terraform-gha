@@ -20,8 +20,9 @@ runs:
           curl \
           jq \
           make \
-          sudo
-        sudo usermod -aG sudo $(whoami)
-        cat /etc/os-release
-        dpkg --print-architecture
+          sudo \
+          unzip
+        # sudo usermod -aG sudo $(whoami)
+        # cat /etc/os-release
+        # dpkg --print-architecture
 

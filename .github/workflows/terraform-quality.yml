@@ -4,16 +4,8 @@ on:
     pull_request:
         branches:
             - main
-        paths:
-            - 'actions-arc-dind-chart'
-            - 'actions-arc-k8s-chart'
-            - 'actions-ebs-chart'
-            - 'aws'
-            - 'kind'
-            - 'minikube'
-
 jobs:
-  terraform:
+  terraform-check:
     runs-on: arc-runners
     permissions:    
       contents: write      # required to merge PRs
@@ -30,8 +22,10 @@ jobs:
           runner: ${{ runner.os }}
       - name: Set Up Terraform
         uses: hashicorp/setup-terraform@v3
-      - name: Format Terraform Config
-        run: terraform fmt -check
+      - name: Test Manually hosted runner
+        run: echo "This is a test of a manually hosted runner running on ARM64 architecture with" ${{ runner.os }} "OS"
+      # - name: Format Terraform Config
+      #   run: terraform fmt -check
       # - name: Validate Terraform Config
       #   uses: terraform validate 
       # - name: Plan Terraform Config

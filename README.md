@@ -52,7 +52,7 @@ This project will be supporting the following providers:
 
 ### Requirements for AWS EKS
 
-The following tools are required for deploying GitHub Actions Runner Controller on AWS EKS:
+The following tools are required for deploying GitHub Actions Runner Controller on AWS EKS (tested only on public clusters):
 
 - `docker` (up and running)
 - `awscli`

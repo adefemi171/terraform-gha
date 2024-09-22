@@ -1,7 +1,7 @@
 # Cluster Config Variables
 minikube_driver    = "docker"
 cluster_name       = "actions-cluster"
-kubernetes_version = "v1.28.3"
+kubernetes_version = "v1.30.0"
 cluster_addons = [
   "ingress",
   "metrics-server",
@@ -20,10 +20,10 @@ open_ebs_namespace = "openebs"
 
 #ARC Chart Variables
 arc_controller_namespace     = "arc-systems"
-arc_controller_chart_version = "0.7.0"
+arc_controller_chart_version = "0.9.3"
 
 arc_runner_namespace     = "arc-runners"
-arc_runner_chart_version = "0.7.0"
+arc_runner_chart_version = "0.9.3"
 arc_runner_config = [{
   name  = "githubConfigUrl"
   value = "https://github.com/" # This is a dummy repo

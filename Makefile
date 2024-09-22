@@ -33,96 +33,108 @@ help:
 
 .PHONY: create-aws-dind
 create-aws-dind:
-	cd aws/dind
-	terraform init -upgrade
+	cd aws/dind && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: create-aws-k8s
 create-aws-k8s:
-	cd aws/k8s
-	terraform init -upgrade
+	cd aws/k8s && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: create-kind-dind
 create-kind-dind:
-	cd kind/dind
-	terraform init -upgrade
+	cd kind/dind && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: create-kind-k8s
 create-kind-k8s:
-	cd kind/k8s
-	terraform init -upgrade
+	cd kind/k8s && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: create-minikube-dind
 create-minikube-dind:
-	cd minikube/dind
-	terraform init -upgrade
+	cd minikube/dind && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: create-minikube-k8s
 create-minikube-k8s:
-	cd minikube/k8s
-	terraform init -upgrade
+	cd minikube/k8s && \
+	terraform init -upgrade && \
 	terraform apply -auto-approve -var-file=terraform.tfvars
 
 .PHONY: cleanup-aws-dind
 cleanup-aws-dind:
-	cd aws/dind
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	cd aws/dind && \
+	terraform destroy -auto-approve -var-file=terraform.tfvars && \
+	rm -f *-config || echo "Config file not found, skipping" && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: cleanup-aws-k8s
 cleanup-aws-k8s:
-	cd aws/k8s
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	cd aws/k8s && \
+	terraform destroy -auto-approve -var-file=terraform.tfvars && \
+	rm -f *-config || echo "Config file not found, skipping" && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: cleanup-kind-dind
 cleanup-kind-dind:
-	cd kind/dind
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	cd kind/dind && \
+	terraform destroy -auto-approve -var-file=terraform.tfvars && \
+	kind delete clusters --all && \
+	rm -f *-config || echo "Config file not found, skipping" && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: cleanup-kind-k8s
 cleanup-kind-k8s:
-	cd kind/k8s
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	cd kind/k8s && \
+	terraform destroy -auto-approve -var-file=terraform.tfvars && \
+	kind delete clusters --all && \
+	rm -f *-config || echo "Config file not found, skipping" && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: cleanup-minikube-dind
 cleanup-minikube-dind:
-	cd minikube/dind
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	minikube delete --all && \
+	cd minikube/dind && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: cleanup-minikube-k8s
 cleanup-minikube-k8s:
-	cd minikube/k8s
-	terraform destroy -auto-approve -var-file=terraform.tfvars
-	rm -f *-config || echo "File not found, skipping"
+	minikube delete --all && \
+	cd minikube/k8s && \
+	rm -f *.tfstate || echo "State file not found, skipping" && \
+	rm -f *.tfstate.backup || echo "State backup file not found, skipping"
 
 .PHONY: plan-kind-dind
 plan-kind-dind:
-	cd kind/dind
-	terraform init -upgrade
+	cd kind/dind && \
+	terraform init -upgrade && \
 	terraform plan -var-file=terraform.tfvars
 
 .PHONY: plan-kind-k8s
 plan-kind-k8s:
-	cd kind/k8s
-	terraform init -upgrade
+	cd kind/k8s && \
+	terraform init -upgrade && \
 	terraform plan -var-file=terraform.tfvars
 
 .PHONY: plan-minikube-dind
 plan-minikube-dind:
-	cd minikube/dind
-	terraform init -upgrade
+	cd minikube/dind && \
+	terraform init -upgrade && \
 	terraform plan -var-file=terraform.tfvars
 
 .PHONY: plan-minikube-k8s
 plan-minikube-k8s:
-	cd minikube/k8s
-	terraform init -upgrade
+	cd minikube/k8s && \
+	terraform init -upgrade && \
 	terraform plan -var-file=terraform.tfvars

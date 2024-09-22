@@ -11,8 +11,4 @@
 
 Yayyy, You are all done with the steps! Now just sit back and watch while your Pull request is reviewed and ultimately merged. 🎊
 
-
-
-
-
 ##### Thanks! again for the contribution!🙏

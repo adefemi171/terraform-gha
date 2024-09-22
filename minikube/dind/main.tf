@@ -12,7 +12,7 @@ module "action_cluster" {
 }
 
 module "actions_actions_arc_chart" {
-  source                       = "../../actions-arc-dind-chart"
+  source                       = "../../actions-arc-chart"
   arc_controller_namespace     = var.arc_controller_namespace
   arc_controller_chart_version = var.arc_controller_chart_version
 

@@ -1,6 +1,6 @@
 # Cluster Config Variables
 cluster_name                        = "actions-cluster"
-cluster_version                     = "1.29"
+cluster_version                     = "1.30"
 cluster_endpoint_public_access      = true
 managed_node_groups_name            = "actions-node-group"
 node_group_defaults_instance_types  = ["t2.medium", "t3a.medium", "t3.xlarge"]
@@ -32,10 +32,10 @@ open_ebs_namespace = "openebs"
 
 #ARC Chart Variables
 arc_controller_namespace     = "arc-systems"
-arc_controller_chart_version = "0.7.0"
+arc_controller_chart_version = "0.9.3"
 
 arc_runner_namespace     = "arc-runners"
-arc_runner_chart_version = "0.7.0"
+arc_runner_chart_version = "0.9.3"
 arc_runner_config = [{
   name  = "githubConfigUrl"
   value = "https://github.com/" # This is a dummy repo

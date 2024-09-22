@@ -1,6 +1,6 @@
 # Cluster Config Variables
 cluster_name       = "actions-cluster"
-kubernetes_version = "v1.29.1"
+kubernetes_version = "v1.30.4"
 kind               = "Cluster"
 api_version        = "kind.x-k8s.io/v1alpha4"
 
@@ -11,10 +11,10 @@ open_ebs_namespace = "openebs"
 
 #ARC Chart Variables
 arc_controller_namespace     = "arc-systems"
-arc_controller_chart_version = "0.7.0"
+arc_controller_chart_version = "0.9.3"
 
 arc_runner_namespace     = "arc-runners"
-arc_runner_chart_version = "0.7.0"
+arc_runner_chart_version = "0.9.3"
 arc_runner_config = [{
   name  = "githubConfigUrl"
   value = "https://github.com/" # This is a dummy repo

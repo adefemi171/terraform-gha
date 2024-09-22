@@ -15,7 +15,8 @@ The project currently supports running GitHub Actions Runner on the following pl
 1. **KinD:** Deploying GitHub Actions Runner Controller on KinD.
 1. **Minikube:** Deploying GitHub Actions Runner Controller on Minikube.
 
-> ⚠️ **Before running the Terraform commands, make sure to update the `terraform.tfvars` file with the right `githubConfigUrl` and `github_token`.**
+> [!IMPORTANT]
+> Before running the Terraform commands, make sure to update the `terraform.tfvars` file with the right `githubConfigUrl` and `github_token`. Lastly, if you will be using GitHub ARC images, make sure to login to the GitHub Container Registry (GHCR) using the `docker login ghcr.io -u username -p accesstoken` command.
 
 ## Supported Providers
 
@@ -177,4 +178,14 @@ To delete the GitHub Actions Runner on any of the platform currently supported, 
 
 ```sh
 make cleanup-<platform>-<container_mode>
+```
+
+### Usage
+
+Once the cluster is up and running, you can use the github actions runner in your workflow by changing the `runs-on` in your workflow file to the name of the runner you created.
+
+```yaml
+jobs:
+  build:
+    runs-on: self-hosted
 ```
